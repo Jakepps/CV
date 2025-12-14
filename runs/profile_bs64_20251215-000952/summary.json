@@ -1,0 +1,58 @@
+{
+  "run_dir": "runs\\profile_bs64_20251215-000952",
+  "run_name": "profile_bs64",
+  "device_label": "auto",
+  "data": {
+    "normalize": true,
+    "shuffle_buffer": 10000
+  },
+  "model": {
+    "initializer": "glorot_uniform"
+  },
+  "lr": {
+    "strategy": "fixed",
+    "lr": 0.001,
+    "step_drop": 0.5,
+    "step_epochs": 3,
+    "base_lr": 0.0001,
+    "max_lr": 0.005,
+    "step_size": 2000
+  },
+  "train": {
+    "run_name": "profile_bs64",
+    "seed": 42,
+    "epochs": 2,
+    "batch_size": 64,
+    "val_split": 0.1,
+    "tb_histogram_freq": 0,
+    "profile_batch": 0,
+    "activation_every_n_epochs": 0,
+    "grad_every_n_epochs": 0,
+    "cm_every_n_epochs": 0,
+    "examples_every_n_epochs": 0,
+    "optimizer": "adam",
+    "high_lr_broken": false,
+    "terminate_on_nan": true,
+    "use_reduce_on_plateau": false,
+    "reduce_factor": 0.5,
+    "reduce_patience": 2,
+    "reduce_min_lr": 1e-06,
+    "use_checkpoint": false,
+    "checkpoint_monitor": "val_accuracy",
+    "use_custom_early_stop": false,
+    "early_stop_patience": 3,
+    "early_stop_min_delta": 0.0001,
+    "device_label": "auto"
+  },
+  "epochs_trained": 2,
+  "best_val_accuracy": 0.9766666889190674,
+  "best_val_loss": 0.08311070501804352,
+  "test_accuracy": 0.9728999733924866,
+  "test_loss": 0.08358345180749893,
+  "avg_epoch_time_sec": 2.508304350000799,
+  "rss_peak_mb": 1708.52734375,
+  "gpu_peak_mb": null,
+  "corr_weight_delta_vs_val_acc": -1.0,
+  "best_weights_loaded": false,
+  "gpus_visible": []
+}

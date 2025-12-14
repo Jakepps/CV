@@ -1,0 +1,63 @@
+{
+  "benchmark_dir": "runs\\cpu_gpu_benchmark_20251215-001015",
+  "cpu": {
+    "run_dir": "runs\\bench_cpu_20251215-001009",
+    "run_name": "bench_cpu",
+    "device_label": "cpu",
+    "data": {
+      "normalize": true,
+      "shuffle_buffer": 10000
+    },
+    "model": {
+      "initializer": "glorot_uniform"
+    },
+    "lr": {
+      "strategy": "fixed",
+      "lr": 0.001,
+      "step_drop": 0.5,
+      "step_epochs": 3,
+      "base_lr": 0.0001,
+      "max_lr": 0.005,
+      "step_size": 2000
+    },
+    "train": {
+      "run_name": "bench_cpu",
+      "seed": 42,
+      "epochs": 3,
+      "batch_size": 256,
+      "val_split": 0.1,
+      "tb_histogram_freq": 0,
+      "profile_batch": 0,
+      "activation_every_n_epochs": 0,
+      "grad_every_n_epochs": 0,
+      "cm_every_n_epochs": 0,
+      "examples_every_n_epochs": 0,
+      "optimizer": "adam",
+      "high_lr_broken": false,
+      "terminate_on_nan": true,
+      "use_reduce_on_plateau": false,
+      "reduce_factor": 0.5,
+      "reduce_patience": 2,
+      "reduce_min_lr": 1e-06,
+      "use_checkpoint": false,
+      "checkpoint_monitor": "val_accuracy",
+      "use_custom_early_stop": false,
+      "early_stop_patience": 3,
+      "early_stop_min_delta": 0.0001,
+      "device_label": "cpu"
+    },
+    "epochs_trained": 3,
+    "best_val_accuracy": 0.9711666703224182,
+    "best_val_loss": 0.09917447715997696,
+    "test_accuracy": 0.9678999781608582,
+    "test_loss": 0.10110529512166977,
+    "avg_epoch_time_sec": 1.4311325666676566,
+    "rss_peak_mb": 1152.12890625,
+    "gpu_peak_mb": null,
+    "corr_weight_delta_vs_val_acc": -0.9997342895719092,
+    "best_weights_loaded": false,
+    "gpus_visible": []
+  },
+  "gpu": null,
+  "gpus_visible": []
+}

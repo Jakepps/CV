@@ -1,0 +1,58 @@
+{
+  "run_dir": "runs\\broken_high_lr_20251214-235954",
+  "run_name": "broken_high_lr",
+  "device_label": "auto",
+  "data": {
+    "normalize": true,
+    "shuffle_buffer": 10000
+  },
+  "model": {
+    "initializer": "glorot_uniform"
+  },
+  "lr": {
+    "strategy": "fixed",
+    "lr": 0.001,
+    "step_drop": 0.5,
+    "step_epochs": 3,
+    "base_lr": 0.0001,
+    "max_lr": 0.005,
+    "step_size": 2000
+  },
+  "train": {
+    "run_name": "broken_high_lr",
+    "seed": 42,
+    "epochs": 6,
+    "batch_size": 128,
+    "val_split": 0.1,
+    "tb_histogram_freq": 1,
+    "profile_batch": 0,
+    "activation_every_n_epochs": 1,
+    "grad_every_n_epochs": 1,
+    "cm_every_n_epochs": 1,
+    "examples_every_n_epochs": 1,
+    "optimizer": "adam",
+    "high_lr_broken": true,
+    "terminate_on_nan": true,
+    "use_reduce_on_plateau": true,
+    "reduce_factor": 0.5,
+    "reduce_patience": 2,
+    "reduce_min_lr": 1e-06,
+    "use_checkpoint": true,
+    "checkpoint_monitor": "val_accuracy",
+    "use_custom_early_stop": true,
+    "early_stop_patience": 3,
+    "early_stop_min_delta": 0.0001,
+    "device_label": "auto"
+  },
+  "epochs_trained": 6,
+  "best_val_accuracy": 0.11183333396911621,
+  "best_val_loss": 2.3784220218658447,
+  "test_accuracy": 0.11349999904632568,
+  "test_loss": 2.383775234222412,
+  "avg_epoch_time_sec": 1.960506450000139,
+  "rss_peak_mb": 1565.44921875,
+  "gpu_peak_mb": null,
+  "corr_weight_delta_vs_val_acc": -0.592603740701043,
+  "best_weights_loaded": true,
+  "gpus_visible": []
+}

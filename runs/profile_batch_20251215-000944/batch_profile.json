@@ -1,0 +1,30 @@
+[
+  {
+    "batch_size": 32,
+    "avg_epoch_time_sec": 3.7741762499999822,
+    "rss_peak_mb": 1712.36328125,
+    "gpu_peak_mb": null,
+    "test_accuracy": 0.9785000085830688
+  },
+  {
+    "batch_size": 64,
+    "avg_epoch_time_sec": 2.508304350000799,
+    "rss_peak_mb": 1708.52734375,
+    "gpu_peak_mb": null,
+    "test_accuracy": 0.9728999733924866
+  },
+  {
+    "batch_size": 128,
+    "avg_epoch_time_sec": 1.8387735500000417,
+    "rss_peak_mb": 1723.140625,
+    "gpu_peak_mb": null,
+    "test_accuracy": 0.9689000248908997
+  },
+  {
+    "batch_size": 256,
+    "avg_epoch_time_sec": 1.5091918499992971,
+    "rss_peak_mb": 1749.41796875,
+    "gpu_peak_mb": null,
+    "test_accuracy": 0.9588000178337097
+  }
+]
