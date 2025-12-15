@@ -50,9 +50,9 @@ import traceback
 from glob import glob
 
 
-# -----------------------------
+
 # 0) Общие настройки / утилиты
-# -----------------------------
+
 
 def set_global_determinism(seed: int = 42) -> None:
     os.environ["PYTHONHASHSEED"] = str(seed)
@@ -115,9 +115,9 @@ def pad_to_32(x: np.ndarray) -> np.ndarray:
     return np.pad(x, ((0, 0), (2, 2), (2, 2)), mode="constant")
 
 
-# -----------------------------
+
 # 1) Данные (MNIST) + варианты "поломки"
-# -----------------------------
+
 
 @dataclass
 class DataConfig:
@@ -158,9 +158,9 @@ def make_tf_datasets(
     return ds_train, ds_val
 
 
-# -----------------------------
+
 # 2) LeNet-5
-# -----------------------------
+
 
 @dataclass
 class ModelConfig:
@@ -247,9 +247,9 @@ def set_optimizer_lr(optimizer, lr: float) -> None:
     raise RuntimeError(f"Cannot set learning rate for optimizer: {type(optimizer)}")
 
 
-# -----------------------------
+
 # 3) LR стратегии
-# -----------------------------
+
 
 @dataclass
 class LRConfig:
@@ -299,9 +299,9 @@ class CyclicalLR(keras.callbacks.Callback):
             tf.summary.scalar(f"{self.tag_prefix}/cyclical_lr", lr, step=self.iteration)
 
 
-# -----------------------------
+
 # 4) Продвинутые callbacks и телеметрия
-# -----------------------------
+
 
 class EpochTimer(keras.callbacks.Callback):
     def __init__(self, writer: tf.summary.SummaryWriter):
@@ -588,9 +588,9 @@ def log_model_architecture_image(model: keras.Model, writer: tf.summary.SummaryW
             tf.summary.text("model/architecture_error", tf.constant(str(e)), step=0)
 
 
-# -----------------------------
+
 # 5) Эксперимент / тренировка
-# -----------------------------
+
 
 @dataclass
 class TrainConfig:
@@ -860,9 +860,9 @@ def run_experiment(cfg: ExperimentConfig, root_dir: str = "runs") -> Dict[str, A
     return summary
 
 
-# -----------------------------
+
 # 6) Набор “сломанных” экспериментов
-# -----------------------------
+
 
 def broken_suite(root_dir="runs") -> List[Dict[str, Any]]:
     results = []
@@ -897,9 +897,9 @@ def broken_suite(root_dir="runs") -> List[Dict[str, Any]]:
     return results
 
 
-# -----------------------------
+
 # 7) Сравнение стратегий обучения
-# -----------------------------
+
 
 def compare_lr_strategies(root_dir="runs") -> List[Dict[str, Any]]:
     results = []
@@ -938,9 +938,9 @@ def compare_lr_strategies(root_dir="runs") -> List[Dict[str, Any]]:
     return results
 
 
-# -----------------------------
+
 # 8) Профилирование batch sizes + память
-# -----------------------------
+
 
 def profile_batch_sizes(root_dir="runs", batch_sizes=(32, 64, 128, 256), epochs=2) -> Dict[str, Any]:
     prof_dir = os.path.join(root_dir, f"profile_batch_{now_tag()}")
@@ -985,9 +985,9 @@ def profile_batch_sizes(root_dir="runs", batch_sizes=(32, 64, 128, 256), epochs=
     return {"profile_dir": prof_dir, "table": rows}
 
 
-# -----------------------------
+
 # 9) CPU vs GPU (через self-subprocess)
-# -----------------------------
+
 
 def self_subprocess_run(device: str, root_dir="runs") -> Dict[str, Any]:
     """
@@ -1071,9 +1071,9 @@ def single_benchmark(device: str, root_dir="runs") -> str:
     return summary_path
 
 
-# -----------------------------
+
 # 10) Отчет (Markdown) + рекомендации
-# -----------------------------
+
 
 def summarize_runs(root_dir="runs") -> pd.DataFrame:
     rows = []
@@ -1680,9 +1680,9 @@ def write_report(root_dir="runs") -> str:
     return report_md
 
 
-# -----------------------------
+
 # 11) Главный сценарий
-# -----------------------------
+
 
 def default_full_suite(root_dir="runs") -> Dict[str, Any]:
     results = {"baseline": None, "broken": [], "compare_lr": [], "profile": None, "cpu_gpu": None, "report": None}
